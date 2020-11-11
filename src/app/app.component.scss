@@ -1,0 +1,30 @@
+.hashtagWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+}
+
+ion-app {
+    overflow: scroll;
+}
+
+
+.hashtagListContainer {
+    max-height: 6vh;
+}
+
+ion-button {
+    height: 6vh;
+    // width: 50vw;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.text { 
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 2vh;
+}

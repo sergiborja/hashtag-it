@@ -1,3 +1,49 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- <ion-image [src]="this.base64Selected"></ion-image> -->
+  <ng-container *ngIf="!this.imageSelected">
+    <ion-content>
+      <ion-label>We </ion-label>
+      <ion-button expand="block" (click)="pickImage()"
+        >Upload your image</ion-button
+      >
+    </ion-content>
+  </ng-container>
+  <ng-container *ngIf="this.imageSelected">
+    <ng-container *ngIf="this.base64Selected">
+      <ion-content class="imageSelectedContainer">
+        <ion-img class="imageSelected" [src]="this.base64Selected"></ion-img>
+      </ion-content>
+    </ng-container>
+    <!-- <ng-container>
+      <ion-content class="imageSelectedContainer">
+        <ion-img class="imageSelected" src="../assets/perfl.jpg"></ion-img>
+      </ion-content>
+    </ng-container> -->
+    <ion-grid class="hashtagListContainerd">
+      <ion-row>
+        <ion-col class="hashtagListContainer" *ngFor="let hashtag of hashtags">
+          <ion-item (click)="checkHashtag(hashtag)" lines="none">
+            <ion-checkbox checked></ion-checkbox>
+            <ion-label>{{ hashtag }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-label class="text"
+      >({{ this.hashtagsToBeCopied.length }} hashtags selected to
+      copy)</ion-label
+    >
+    <ion-row class="buttonsContainer">
+      <ion-col>
+        <ion-button expand="block" (click)="pickImage()"
+          >Upload new image</ion-button
+        >
+      </ion-col>
+      <ion-col>
+        <ion-button class="button" (click)="copyHashtags()" name="copy-outline"
+          >Copy your hashtags</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ng-container>
 </ion-app>
